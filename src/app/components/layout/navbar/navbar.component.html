@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">UsuariosApp</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="pages/autenticar">Autenticar</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="pages/criar-conta">Criar Conta</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="pages/recuperar-senha">Recuperar Senha</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" routerLink="pages/atualizar-dados">Atualizar dados</a>
+        </li>
+        <li class="nav-item dropdown ms-3" *ngIf="isAuthenticated">
+          <a class="nav-link active dropdown-toggle btn btn-sm btn-primary"
+             style="border: 1px solid #eee;" href="#" id="user-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{nomeUsuario}} | {{emailUsuario}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-dropdown">                            
+              <li>
+                  <button class="dropdown-item" (click)="logout()">
+                      Sair do Sistema
+                  </button>
+              </li>
+          </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
